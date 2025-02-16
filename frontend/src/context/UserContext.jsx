@@ -1,8 +1,11 @@
-import React from "react";
-import { useState,createContext } from "react";
-export const UserDataContext = createContext();
-const UserContext = ({ children }) => {
+import React, { createContext, useState } from "react";
+
+export const UserDataContext = createContext(null);
+
+export const UserDataProvider = ({ children }) => {
+ 
   const [user, setUser] = useState({
+    // _id: null,
     email: "",
     fullName: {
       firstName: "",
@@ -10,13 +13,10 @@ const UserContext = ({ children }) => {
     },
     password: "",
   });
+
   return (
-    <div>
-      <UserDataContext.Provider value={[user, setUser]}>
-        {children}
-      </UserDataContext.Provider>
-    </div>
+    <UserDataContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserDataContext.Provider>
   );
 };
-
-export default UserContext;

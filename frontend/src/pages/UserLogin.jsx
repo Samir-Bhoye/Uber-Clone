@@ -24,10 +24,10 @@ const UserLogin = () => {
       // console.log("Response Status:", response.status);
       // console.log("Response Data:", response.data);
       if (response.status === 200) {
-        const { data } =  response;
+        const { data } = response;
         setUserData(data.user);
         // console.log("Navigating to home page...");
-        localStorage.setItem("token",data.token);
+        localStorage.setItem("token", data.token);
         navigate("/home");
       }
     } catch (error) {
@@ -88,7 +88,7 @@ const UserLogin = () => {
       <div>
         <Link
           to="/captain-login"
-          className="bg-[#10b461] flex items-center justify-center text-white font-semibold mb-7 rounded px-4 py-2 mb-5  w-full text-lg placeholder:text-base"
+          className="bg-[#10b461] flex items-center justify-center text-white font-semibold  rounded px-4 py-2 mb-5  w-full text-lg placeholder:text-base"
         >
           Sign in as Captain
         </Link>

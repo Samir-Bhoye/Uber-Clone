@@ -75,6 +75,121 @@ This project is an Uber Clone application built using modern web technologies. B
     ```bash
     npm start
     ```
+    ## User Routes Documentation
+
+    This document provides an overview of the user routes available in the Uber Clone backend application.
+
+    ### Endpoints
+
+    #### Register User
+
+    **URL**: `/user/register`
+
+    **Method**: `POST`
+
+    **Description**: Registers a new user with the provided details.
+
+    **Request Body**:
+    ```json
+    {
+        "email": "user@example.com",
+        "fullname": {
+            "firstname": "Jane",
+            "lastname": "Doe"
+        },
+        "password": "password123"
+    }
+    ```
+
+    #### Login User
+
+    **URL**: `/user/login`
+
+    **Method**: `POST`
+
+    **Description**: Authenticates a user and returns a token.
+
+    **Request Body**:
+    ```json
+    {
+        "email": "user@example.com",
+        "password": "password123"
+    }
+    ```
+
+    #### Request Ride
+
+    **URL**: `/user/request-ride`
+
+    **Method**: `POST`
+
+    **Description**: Allows a user to request a ride by providing the pickup and destination locations.
+
+    **Request Body**:
+    ```json
+    {
+        "pickupLocation": {
+            "latitude": 37.7749,
+            "longitude": -122.4194
+        },
+        "destinationLocation": {
+            "latitude": 37.7849,
+            "longitude": -122.4094
+        }
+    }
+    ```
+
+    #### Get Ride History
+
+    **URL**: `/user/ride-history`
+
+    **Method**: `GET`
+
+    **Description**: Retrieves the ride history of the authenticated user.
+
+    **Response**:
+    ```json
+    [
+        {
+            "rideId": "ride123",
+            "pickupLocation": "123 Main St",
+            "destinationLocation": "456 Elm St",
+            "status": "completed",
+            "date": "2023-01-01T12:00:00Z"
+        }
+    ]
+    ```
+## Captain Routes Documentation
+
+This document provides an overview of the captain routes available in the Uber Clone backend application.
+
+### Endpoints
+
+#### Register Captain
+
+**URL**: `/captain/register`
+
+**Method**: `POST`
+
+**Description**: Registers a new captain with the provided details.
+
+**Request Body**:
+```json
+{
+  "email": "captain@example.com",
+  "fullname": {
+    "firstname": "John",
+    "lastname": "Doe"
+  },
+  "password": "password123",
+  "vehicle": {
+    "color": "Red",
+    "plate": "ABC1234",
+    "capacity": 4,
+    "vehicleType": "car"
+  }
+}
+```
 
 ## Conclusion
 

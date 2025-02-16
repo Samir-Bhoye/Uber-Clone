@@ -20,10 +20,11 @@ const WaitingForDriver = (props) => {
           alt=""
         />
         <div className="text-right">
-          <h2 className="text-lg font-medium">Driver Name</h2>
-          <h4 className="text-xl font-semibold -mt-1 -mb-1"> Vehicle PlateNo</h4>
+          <h2 className="text-lg font-medium capitalize">{props.ride?.captain?.fullname?.firstname || "Driver not assigned yet"}</h2>
+          <h4 className="text-xl font-semibold -mt-1 -mb-1"> {props.ride?.captain?.vehicle?.plate || "N/A"}</h4>
           <p className="text-sm text-gray-600">Vehicle name</p>
-        </div>
+          <h1 className="text-lg font-semi-bold">{props.ride?.otp}</h1>
+          </div>
       </div>
       {/* <h3 className="text-2xl font-medium mb-5">Looking for Driver</h3> */}
       <div className="flex gap-2 flex-col justify-between items-center">
@@ -38,7 +39,7 @@ const WaitingForDriver = (props) => {
             <div>
               <h3 className="text-lg font-medium">Your Location</h3>
               <p className="text-sm -mt-1 text-gray-600">
-                Your destination address here
+              {props.ride?.pickup}
               </p>
             </div>
           </div>
@@ -48,14 +49,14 @@ const WaitingForDriver = (props) => {
             <div>
               <h3 className="text-lg font-medium">To destination:</h3>
               <p className="text-sm -mt-1 text-gray-600">
-                Your destination address here
+              {props.ride?.destination}
               </p>
             </div>
           </div>
           <div className="flex items-center gap-5  p-3 ">
             <i className="ri-money-rupee-circle-fill"> </i>
             <div>
-              <h3 className="text-lg font-medium"> $ 193.20</h3>
+              <h3 className="text-lg font-medium"> ₹{props.ride?.fare}</h3>
               <p className="text-sm -mt-1 text-gray-600">Cash Cash</p>
             </div>
           </div>

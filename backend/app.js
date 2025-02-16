@@ -6,7 +6,9 @@ const cors = require("cors");
 const connectToDb = require("./db/dbs");
 const userRoutes = require("./routes/user.route");
 const cookieParser = require("cookie-parser");
-
+const captainRoutes=  require('./routes/captain.route')
+const mapsRoutes = require('./routes/maps.routes');
+const rideRoutes = require('./routes/ride.routes');
 connectToDb();
 
 app.use(cors());
@@ -18,6 +20,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/users", userRoutes);
+app.use("/captain", captainRoutes);
+app.use('/maps', mapsRoutes);
+app.use('/rides', rideRoutes)
+
 // Remove the app.listen() call as it's already handled in server.js
 
 module.exports = app;
