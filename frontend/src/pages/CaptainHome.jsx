@@ -34,6 +34,7 @@ const CaptainHome = () => {
               ltd: position.coords.latitude,
               lng: position.coords.longitude,
             },
+
           });
         });
       }
@@ -41,32 +42,37 @@ const CaptainHome = () => {
 
     const locationInterval = setInterval(updateLocation, 90000);
     updateLocation();
+
   }, [socket, captain?._id]);
 
-  socket.on("new-ride", (data) => {
+  
+  socket.on('new-ride', (data) => {
     console.log(data);
-    setRide(data);
-
+    setRide(data)
+   
     setRidePopUpPanel(true);
-  });
 
-  async function confirmRide() {
-    const response = await axios.post(
-      `${import.meta.env.VITE_BASE_URL}/rides/confirm`,
-      {
-        rideId: ride._id,
-        captainId: captain._id,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
-    setRidePopUpPanel(false);
-    setConfirmRidePopUpPanel(true);
-    console.log(response);
-  }
+})
+
+  
+  async function confirmRide(){
+
+    const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/rides/confirm`, {
+
+      rideId:ride._id,
+      captainId: captain._id,
+
+
+  },{
+    headers:{
+      Authorization: `Bearer ${localStorage.getItem("token")}`
+    }
+  } )
+  setRidePopUpPanel(false)
+  setConfirmRidePopUpPanel(true)
+  console.log(response)
+}
+
 
   useGSAP(
     function () {
@@ -137,7 +143,7 @@ const CaptainHome = () => {
         className="fixed w-full h-screen z-10 bottom-0 bg-white  px-3 py-10 pt-12"
       >
         <ConfirmRidePopUp
-          ride={ride}
+         ride={ride}
           setConfirmRidePopUpPanel={setConfirmRidePopUpPanel}
           setRidePopUpPanel={setRidePopUpPanel}
         />
