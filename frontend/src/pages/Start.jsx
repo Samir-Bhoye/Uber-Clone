@@ -15,7 +15,7 @@ const Start = () => {
             to="/login"
             className="flex items-center justify-center w-full bg-black text-white py-3 rounded mt-5"
           >
-            Continue
+            Continue to order
           </Link>
         </div>
       </div>
