@@ -253,7 +253,7 @@ const Home = () => {
           >
             <i className="ri-arrow-down-wide-line"></i>
           </h5>
-          <h4 className="text-2xl font-semibold">Find a trip</h4>
+          <h4 className="text-2xl font-semibold">Find a trip with me</h4>
           <form
             className="relative py-3"
             onSubmit={(e) => {
